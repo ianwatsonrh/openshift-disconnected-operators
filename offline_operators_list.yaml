@@ -1,13 +1,30 @@
 operators:
-  - name: kubevirt-hyperconverged
-    start_version: 2.5.5
-  - name: local-storage-operator
+  - name: amq-broker
+  - name: amq-broker-lts
+  - name: amq-broker-rhel8
+  - name: amq-streams
+  - name: amq7-cert-manager-operator
+  - name: amq7-interconnect-operator
+  - name: cincinnati-operator
+  - name: cluster-kube-descheduler-operator
   - name: cluster-logging
-  - name: elasticsearch-operator
-  - name: jaeger-product
-    start_version: 1.17.8 
-  - name: kiali-ossm
+  - name: clusterresourceoverride
   - name: codeready-workspaces
-    start_version: 2.7.0
-  - name: ocs-operator
+  - name: compliance-operator
+  - name: container-security-operator
+  - name: elasticsearch-operator
+  - name: file-integrity-operator
+  - name: jaeger-product
+  - name: kiali-ossm
+  - name: mtc-operator
+  - name: openshift-gitops-operator
+  - name: openshift-jenkins-operator
+  - name: openshift-pipelines-operator-rh
+  - name: rhsso-operator
   - name: serverless-operator
+  - name: service-registry-operator
+  - name: service-telemetry-operator
+  - name: servicemeshoperator
+  - name: smart-gateway-operator
+  - name: vertical-pod-autoscaler
+  - name: web-terminal
