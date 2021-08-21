@@ -62,7 +62,7 @@ def main():
   print("Creating Image manifest file...")
   mirror_operator_catalogue.CreateManifestFile(images)
   print("Creating Catalog Source YAML...")
-  mirror_operator_catalogue.CreateCatalogSourceYaml(custom_redhat_operators_catalog_image_url)
+  mirror_operator_catalogue.CreateCatalogSourceYaml("registry/operator/index:latest")
 
   print("Catalogue creation and image mirroring complete")
   print("See Publish folder for the image content source policy and catalog source yaml files to apply to your cluster")
