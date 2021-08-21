@@ -216,7 +216,7 @@ def main():
   print("Catalogue creation and image mirroring complete")
   print("See Publish folder for the image content source policy and catalog source yaml files to apply to your cluster")
 
-  cmd_args = "sudo rm -rf {}".format(run_root_dir)
+  cmd_args = "rm -rf {}".format(run_root_dir)
   subprocess.run(cmd_args, shell=True, check=True)
 
 
@@ -553,7 +553,7 @@ def GetListOfCommaDelimitedOperatorList(operators):
 def RecreatePath(item_path):
   path = Path(item_path)
   if path.exists():
-    cmd_args = "sudo rm -rf {}".format(item_path)
+    cmd_args = "rm -rf {}".format(item_path)
     print("Running: " + str(cmd_args))
     subprocess.run(cmd_args, shell=True, check=True)
   
