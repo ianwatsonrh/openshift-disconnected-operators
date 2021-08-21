@@ -20,7 +20,7 @@ def GetLatestVersion(operator_name, db_path):
   con = sqlite3.connect(db_path)
   cur = con.cursor()
   # Get default channel
-  cmd = "select default_channel from package where name like '%" + operator_name + "%';"
+  cmd = "select default_channel from package where name like '%" + operator_name + "';"
 
   result = cur.execute(cmd).fetchall()
   if len(result) == 1:
