@@ -51,6 +51,8 @@ def main():
   print("Writing summary data..")
   mirror_operator_catalogue.CreateSummaryFile(operators, mirror_summary_path)
 
+  images = mirror_operator_catalogue.getImages(operators)
+
   print("Creating Image Content Source Policy YAML...")
   mirror_operator_catalogue.CreateImageContentSourcePolicyFile(images)
 
