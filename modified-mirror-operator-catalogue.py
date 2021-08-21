@@ -52,20 +52,20 @@ def main():
   mirror_operator_catalogue.CreateSummaryFile(operators, mirror_summary_path)
 
   print("Creating Image Content Source Policy YAML...")
-  CreateImageContentSourcePolicyFile(images)
+  mirror_operator_catalogue.CreateImageContentSourcePolicyFile(images)
 
   print("Creating Mapping File...")
-  CreateMappingFile(images)
+  mirror_operator_catalogue.CreateMappingFile(images)
 
   print("Creating Image manifest file...")
-  CreateManifestFile(images)
+  mirror_operator_catalogue.CreateManifestFile(images)
   print("Creating Catalog Source YAML...")
-  CreateCatalogSourceYaml(custom_redhat_operators_catalog_image_url)
+  mirror_operator_catalogue.CreateCatalogSourceYaml(custom_redhat_operators_catalog_image_url)
 
   print("Catalogue creation and image mirroring complete")
   print("See Publish folder for the image content source policy and catalog source yaml files to apply to your cluster")
 
-  cmd_args = "sudo rm -rf {}".format(run_root_dir)
+  cmd_args = "rm -rf {}".format(run_root_dir)
   subprocess.run(cmd_args, shell=True, check=True)
 
 
