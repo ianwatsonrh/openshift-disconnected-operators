@@ -24,7 +24,7 @@ def main():
 
   script_root_dir = "/var/lib/registry"
   run_root_dir = os.path.join(script_root_dir, "run")
-  publish_root_dir = os.path.join(script_root_dir, args.output)
+  publish_root_dir = os.path.join(script_root_dir, "output")
   mirror_summary_file = os.path.join(publish_root_dir, 'mirror_log.txt')
 
   run_temp = os.path.join(run_root_dir, "temp")
