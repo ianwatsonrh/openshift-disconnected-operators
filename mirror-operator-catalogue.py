@@ -355,7 +355,7 @@ def GetImageListToMirror(operators, db_path):
       bundle = OperatorBundle(bundle_name, version)
       
       # Get related images for the operator bundle
-      cmd = "select image from related_image where operatorbundle_name like '%" + bundle_name + "%';"
+      cmd = "select image from related_image where operatorbundle_name like '%" + bundle_name + "';"
 
       result = cur.execute(cmd).fetchall()
       if len(result) > 0:
@@ -363,7 +363,7 @@ def GetImageListToMirror(operators, db_path):
           bundle.related_images.append(image[0])
       
       # Get bundle images for operator bundle
-      cmd = "select bundlepath from operatorbundle where (name like '%" +  operator.name + "%' or bundlepath like '%" +  operator.name + "%') and version='" + version + "';"
+      cmd = "select bundlepath from operatorbundle where (name like '%" +  operator.name + "' or bundlepath like '%" +  operator.name + "') and version='" + version + "';"
 
       result = cur.execute(cmd).fetchall()
       if len(result) > 0:

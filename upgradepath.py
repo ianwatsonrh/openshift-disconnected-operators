@@ -75,7 +75,7 @@ def GetUpgradeMatrix(operator, start_version, latest_version, db_path):
   cur = con.cursor()
 
   # Get Operator bundle name
-  cmd = "select default_channel from package where name like '%" + operator + "%';"
+  cmd = "select default_channel from package where name like '%" + operator + "';"
 
   result = cur.execute(cmd).fetchall()
   if len(result) == 1:
