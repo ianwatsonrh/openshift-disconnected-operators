@@ -20,7 +20,23 @@ def is_number(string):
   except ValueError:
       return False
 
+parser = argparse.ArgumentParser(
+    description='Mirror individual operators to an offline registry')
+  
+parser.add_argument(
+    "--run-dir",
+    default="",
+    help="Run directory for script, must be an absolute path, only handy if running script in a container")
+
+args = parser.parse_args()
+
 def main():
+
+  script_root_dir = args.run_dir
+  run_root_dir = os.path.join(script_root_dir, "run")
+  publish_root_dir = os.path.join(script_root_dir, args.output)
+  mirror_summary_file = os.path.join(publish_root_dir, 'mirror_log.txt')
+
   run_temp = os.path.join(run_root_dir, "temp")
   mirror_summary_path = Path(mirror_summary_file)
 
