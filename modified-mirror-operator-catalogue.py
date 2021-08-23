@@ -45,7 +45,7 @@ def main():
   
   print("Create upgrade matrix for selected operators...")
   for operator in operators:
-    operator.upgrade_path = upgradepath.GetShortestUpgradePath(operator.name, operator.start_version, db_path)  
+    operator.upgrade_path, operator.latest_version = upgradepath.GetShortestUpgradePath(operator.name, operator.start_version, db_path)  
 
   print("Getting list of images to be mirrored...")
   mirror_operator_catalogue.GetImageListToMirror(operators, db_path)
