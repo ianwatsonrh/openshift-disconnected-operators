@@ -140,7 +140,7 @@ image_manifest_file = os.path.join(
 mirror_summary_file = os.path.join(
     publish_root_dir, 'mirror_log.txt')
 operator_output_file = os.path.join(
-    publish_root_dor, 'offline-operators-out.yaml')
+    publish_root_dir, 'offline-operators-out.yaml')
 ocp_version = args.ocp_version
 operator_channel = args.operator_channel
 operator_index_version = ":v" + operator_channel if is_number(operator_channel) else ":" + operator_channel
