@@ -139,6 +139,8 @@ image_manifest_file = os.path.join(
     publish_root_dir, 'image_manifest.txt')
 mirror_summary_file = os.path.join(
     publish_root_dir, 'mirror_log.txt')
+operator_output_file = os.path.join(
+    publish_root_dor, 'offline-operators-out.yaml')
 ocp_version = args.ocp_version
 operator_channel = args.operator_channel
 operator_index_version = ":v" + operator_channel if is_number(operator_channel) else ":" + operator_channel
@@ -160,6 +162,7 @@ else:
 def main():
   run_temp = os.path.join(run_root_dir, "temp")
   mirror_summary_path = Path(mirror_summary_file)
+  operator_output_path = Path(operator_output_file)
 
   # Create publish, run and temp paths
   RecreatePath(publish_root_dir)
@@ -185,7 +188,7 @@ def main():
   
   print("Create upgrade matrix for selected operators...")
   for operator in operators:
-    operator.upgrade_path = upgradepath.GetShortestUpgradePath(operator.name, operator.start_version, db_path)  
+    operator.upgrade_path, operator.latest_version = upgradepath.GetShortestUpgradePath(operator.name, operator.start_version, db_path)  
 
   print("Getting list of images to be mirrored...")
   GetImageListToMirror(operators, db_path)
@@ -193,6 +196,8 @@ def main():
   print("Writing summary data..")
   CreateSummaryFile(operators, mirror_summary_path)
 
+  print("Writing offline operator yaml file..")
+  CreateOutputOperatorsFile(operators, operator_output_path)
 
   images = getImages(operators)
   if mirror_images.lower() == "true":
@@ -307,6 +312,15 @@ def CreateSummaryFile(operators, mirror_summary_path):
           f.write(image + "\n")
         f.write("---------------------------------------- \n \n")
       f.write("============================================================\n \n \n")
+
+
+def CreateOutputOperatorsFile(operators, output_operator_path):
+  with open(output_operator_path, 'w') as file:
+    data = { "operators": [] }
+    for operator in operators:
+      data['operators'].append({"name": operator.name, "start_version": operator.latest_version})
+    documents = yaml.dump(data, file)
+
 
 # Returns an empty string if field does not exist
 def GetFieldValue(data, field):
@@ -569,6 +583,7 @@ class OperatorSpec:
       self.start_version = start_version
       self.upgrade_path = ""
       self.operator_bundles = []
+      self.latest_version = ""
 
 class OperatorBundle:
   def __init__(self, name, version):

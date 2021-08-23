@@ -200,4 +200,4 @@ def GetShortestUpgradePath(operator, start_version, db_path):
   else:
     shortest_path = [latest_version]
 
-  return shortest_path
+  return shortest_path, latest_version

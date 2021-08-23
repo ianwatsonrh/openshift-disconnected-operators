@@ -26,9 +26,11 @@ def main():
   run_root_dir = os.path.join(script_root_dir, "run")
   publish_root_dir = os.path.join(script_root_dir, "output")
   mirror_summary_file = os.path.join(publish_root_dir, 'mirror_log.txt')
+  operator_output_file = os.path.join(publish_root_dir, 'offline_operators.yaml') 
 
   run_temp = os.path.join(run_root_dir, "temp")
   mirror_summary_path = Path(mirror_summary_file)
+  operator_output_path = Path(operator_output_file)
 
   # Create publish, run and temp paths
   mirror_operator_catalogue.RecreatePath(publish_root_dir)
@@ -50,6 +52,8 @@ def main():
 
   print("Writing summary data..")
   mirror_operator_catalogue.CreateSummaryFile(operators, mirror_summary_path)
+
+  mirror_operator_catalogue.CreateOutputOperatorsFile(operators, operator_output_path)
 
   images = mirror_operator_catalogue.getImages(operators)
 
