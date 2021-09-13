@@ -50,7 +50,7 @@ operators:
 - name: service-telemetry-operator
   start_version: 1.2.0
 - name: servicemeshoperator
-  start_version: 2.0.7
+  start_version: 2.0.7-0
 - name: smart-gateway-operator
   start_version: 2.2.0
 - name: vertical-pod-autoscaler
