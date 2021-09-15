@@ -177,9 +177,10 @@ def GetUpgradePaths(start_version, latest_version, matrix, upgrade_paths, contin
       else:
         current_version = current_version_matrix[0]
     
-    # Probably won't need this but just in case there is a weird edge case
     if VersionEval(SanitizeVersion(current_version), latest_version, ">=") or (VersionEval(SanitizeVersion(current_version.replace('-','.')), latest_version, ">=")):
         upgrade_path_complete = True
+    # return true when the matrix has been exhausted
+    upgrade_path_complete = True
 
   upgrade_paths.append(upgrade_path)
 
@@ -188,7 +189,7 @@ def GetShortestUpgradePath(operator, start_version, db_path):
 
   latest_version = GetLatestVersion(operator, db_path)
   
-  if start_version:
+  if start_version and start_version != latest_version:
     matrix = GetUpgradeMatrix(operator, start_version, latest_version, db_path)
     upgrade_paths = []
     GetUpgradePaths(start_version, latest_version, matrix, upgrade_paths, [])
