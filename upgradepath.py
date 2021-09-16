@@ -162,6 +162,7 @@ def GetUpgradePaths(start_version, latest_version, matrix, upgrade_paths, contin
   upgrade_path = continue_upgrade_path
   upgrade_path_complete = False
   current_version = start_version
+  achieved_latest_version = True
   while upgrade_path_complete == False:
     current_version_matrix = GetVersionMatrix(current_version, matrix)
     
