@@ -53,7 +53,7 @@ def SanitizeVersion(version):
   if index == 0:
     return version
   else:
-    print(version[:index])
+    #print(version[:index])
     return version[:index]
 
 
