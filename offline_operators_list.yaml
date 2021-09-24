@@ -20,7 +20,6 @@ operators:
 - name: clusterresourceoverride
   start_version: 4.8.0-202108312109
 - name: codeready-workspaces
-  start_version: 2.11.0
 - name: compliance-operator
   start_version: 0.1.39
 - name: container-security-operator
@@ -42,7 +41,6 @@ operators:
 - name: openshift-pipelines-operator-rh
   start_version: 1.5.1
 - name: rhsso-operator
-  start_version: 7.4.9
 - name: serverless-operator
   start_version: 1.17.0
 - name: service-registry-operator
