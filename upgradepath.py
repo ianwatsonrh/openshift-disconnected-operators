@@ -44,7 +44,7 @@ def GetVersionMatrix(version, matrix):
 def SanitizeVersion(version):
   index = 0
   for i in range(len(version)):
-    if version[i].isnumeric() or version[i] == '.':
+    if version[i].isnumeric() or version[i] == '.' or version[i] == '-':
       continue
     else:
       index = i
