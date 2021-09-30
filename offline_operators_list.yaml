@@ -36,8 +36,6 @@ operators:
   start_version: 1.5.1
 - name: openshift-gitops-operator
   start_version: 1.2.0
-- name: openshift-jenkins-operator
-  start_version: 0.7.1
 - name: openshift-pipelines-operator-rh
   start_version: 1.5.1
 - name: rhsso-operator
