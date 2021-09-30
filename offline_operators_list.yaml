@@ -3,8 +3,6 @@ operators:
   start_version: 7.8.1-opr-3
 - name: amq-broker-lts
   start_version: 0.9.3
-- name: amq-broker-rhel8
-  start_version: 7.8.1-opr-3-rhel8
 - name: amq-streams
   start_version: 1.8.1
 - name: amq7-cert-manager-operator
