@@ -217,4 +217,4 @@ def GetShortestUpgradePath(operator, start_version, db_path):
   else:
     bundles_to_mirror.append([latest_version_bundlename,latest_version])
 
-  return shortest_path, latest_version
+  return bundles_to_mirror, latest_version

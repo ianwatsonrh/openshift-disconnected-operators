@@ -298,8 +298,8 @@ def CreateSummaryFile(operators, mirror_summary_path):
       f.write(operator.name + '\n')
       f.write("Upgrade Path: ")
       upgrade_path = operator.start_version + " -> "
-      for version in operator.upgrade_path:
-        upgrade_path += version + " -> "
+      for path in operator.upgrade_path:
+        upgrade_path += path[1] + " -> "
       upgrade_path = upgrade_path[:-4]
       f.write(upgrade_path)
       f.write("\n") 
