@@ -32,7 +32,7 @@ def GetLatestVersion(operator_name, db_path):
 
     if len(result) == 1:
       version = GetVersion(result[0][0])
-      return version
+      return result[0][0], version
 
 
 def GetVersionMatrix(version, matrix):
@@ -41,10 +41,11 @@ def GetVersionMatrix(version, matrix):
       return matrix[item][1]
 
 
-def SanitizeVersion(version):
+def SanitizeVersion(paramversion):
+  version = paramversion.replace('-', '.')
   index = 0
   for i in range(len(version)):
-    if version[i].isnumeric() or version[i] == '.' or version[i] == '-':
+    if version[i].isnumeric() or version[i] == '.':
       continue
     else:
       index = i
@@ -190,8 +191,9 @@ def GetUpgradePaths(start_version, latest_version, matrix, upgrade_paths, contin
 
 def GetShortestUpgradePath(operator, start_version, db_path):
 
-  latest_version = GetLatestVersion(operator, db_path)
-  
+  latest_version_bundlename, latest_version = GetLatestVersion(operator, db_path)
+  bundles_to_mirror = [] 
+ 
   if start_version and start_version != latest_version:
     matrix = GetUpgradeMatrix(operator, start_version, latest_version, db_path)
     upgrade_paths = []
@@ -204,7 +206,15 @@ def GetShortestUpgradePath(operator, start_version, db_path):
     for path in upgrade_paths:
         if len(path) < len(shortest_path):
           shortest_path = path
+    
+    for version in shortest_path:
+      print("Version is ", version)
+      for item in matrix:
+        print("Item is ", item)
+        print("Version is ", matrix[item][0])
+        if matrix[item][0] == version:
+          bundles_to_mirror.append([item,version])
   else:
-    shortest_path = [latest_version]
+    bundles_to_mirror.append([latest_version_bundlename,latest_version])
 
   return shortest_path, latest_version

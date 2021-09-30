@@ -48,6 +48,9 @@ def main():
     upgrade_path, latest_version = upgradepath.GetShortestUpgradePath(operator.name, operator.start_version, db_path)
     if latest_version != -1:
       operator.upgrade_path, operator.latest_version = upgradepath.GetShortestUpgradePath(operator.name, operator.start_version, db_path)  
+    else:
+      print("What is this use case????")
+      exit(1)
 
   print("Getting list of images to be mirrored...")
   mirror_operator_catalogue.GetImageListToMirror(operators, db_path)

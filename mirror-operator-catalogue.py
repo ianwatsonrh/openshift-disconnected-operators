@@ -351,20 +351,9 @@ def GetImageListToMirror(operators, db_path):
   con = sqlite3.connect(db_path)
   cur = con.cursor()
   for operator in operators:
-    for version in operator.upgrade_path:
-
-      # Get Operator bundle name
-      cmd = "select default_channel from package where name like '%" + operator.name + "';"
-      print("Running command " + cmd)
-      result = cur.execute(cmd).fetchall()
-      if len(result) == 1:
-        channel = result[0][0]
-   
-      cmd = "select operatorbundle_name from channel_entry where package_name like '" + operator.name + "' and channel_name like '" + channel + "' and (operatorbundle_name like '%" + version + "%' or operatorbundle_name like '%" + version.replace('-','.') + "%');" 
-      result = cur.execute(cmd).fetchall()
-
-      if len(result) == 1:
-        bundle_name = result[0][0]
+    for path in operator.upgrade_path:
+      bundle_name = path[0]
+      version = path[1]
 
       bundle = OperatorBundle(bundle_name, version)
       
