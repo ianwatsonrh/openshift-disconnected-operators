@@ -14,29 +14,32 @@ operators:
 - name: cluster-kube-descheduler-operator
   start_version: 4.8.0-202108312109
 - name: cluster-logging
-  start_version: 5.2.0-57
+  start_version: 5.2.1-5
 - name: clusterresourceoverride
-  start_version: 4.8.0-202108312109
+  start_version: 4.8.0-202109210857
 - name: codeready-workspaces
+  start_version: 2.11.0
 - name: compliance-operator
   start_version: 0.1.39
 - name: container-security-operator
-  start_version: 3.5.6
+  start_version: 3.5.7
+- name: devworkspace-operator
 - name: elasticsearch-operator
-  start_version: 5.2.0-58
+  start_version: 5.2.1-5
 - name: file-integrity-operator
   start_version: 0.1.16
 - name: jaeger-product
   start_version: 1.24.1
 - name: kiali-ossm
-  start_version: 1.24.9
+  start_version: 1.24.10
 - name: mtc-operator
-  start_version: 1.5.1
+  start_version: 1.6.0
 - name: openshift-gitops-operator
-  start_version: 1.2.0
+  start_version: 1.2.1
 - name: openshift-pipelines-operator-rh
-  start_version: 1.5.1
+  start_version: 1.5.2
 - name: rhsso-operator
+  start_version: 7.4.9
 - name: serverless-operator
   start_version: 1.17.0
 - name: service-registry-operator
@@ -44,10 +47,10 @@ operators:
 - name: service-telemetry-operator
   start_version: 1.2.0
 - name: servicemeshoperator
-  start_version: 2.0.7.1
+  start_version: 2.0.8
 - name: smart-gateway-operator
   start_version: 2.2.0
 - name: vertical-pod-autoscaler
-  start_version: 4.8.0-202108312109
+  start_version: 4.8.0-202109210857
 - name: web-terminal
   start_version: 1.3.0
