@@ -132,15 +132,26 @@ def GetUpgradeMatrix(operator, start_version, latest_version, db_path):
 
     if skiprange:
       range = skiprange.split(' ')
-      min = range[0]
-      min_index = re.search(r"\d", min).start()
-      min_oper = min[:min_index]
-      min_version = min[min_index:]
+
+      if len(range) == 2:
+        min = range[0]
+        min_index = re.search(r"\d", min).start()
+        min_oper = min[:min_index]
+        min_version = min[min_index:]
       
-      max = range[1]
-      max_index = re.search(r"\d", max).start()
-      max_oper = max[:max_index]
-      max_version = max[max_index:]
+        max = range[1]
+        max_index = re.search(r"\d", max).start()
+        max_oper = max[:max_index]
+        max_version = max[max_index:]
+
+      else:
+        min_oper = ">"
+        min_version = "0"
+ 
+        max = range[0]
+        max_index = re.search(r"\d", max).start()
+        max_oper = max[:max_index]
+        max_version = max[max_index:]
 
       for k, v in myDict.items():
         if VersionEval(v[0], min_version, min_oper):
