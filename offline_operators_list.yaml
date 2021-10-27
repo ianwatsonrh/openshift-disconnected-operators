@@ -44,12 +44,8 @@ operators:
   start_version: 1.17.0
 - name: service-registry-operator
   start_version: 2.0.2
-- name: service-telemetry-operator
-  start_version: 1.2.0
 - name: servicemeshoperator
   start_version: 2.0.8
-- name: smart-gateway-operator
-  start_version: 2.2.0
 - name: vertical-pod-autoscaler
   start_version: 4.8.0-202109210857
 - name: web-terminal
