@@ -196,6 +196,7 @@ def GetShortestUpgradePath(operator, start_version, db_path):
  
   if start_version and start_version != latest_version:
     matrix = GetUpgradeMatrix(operator, start_version, latest_version, db_path)
+    print("Matrix is ", matrix)
     upgrade_paths = []
     GetUpgradePaths(start_version, latest_version, matrix, upgrade_paths, [])
 
