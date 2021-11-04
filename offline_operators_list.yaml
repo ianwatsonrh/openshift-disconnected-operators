@@ -1,12 +1,6 @@
 operators:
-- name: amq-broker
-  start_version: 7.8.1-opr-3
-- name: amq-broker-lts
-  start_version: 0.9.3
 - name: amq-streams
   start_version: 1.8.1
-- name: amq7-cert-manager-operator
-  start_version: 1.0.1
 - name: amq7-interconnect-operator
   start_version: 1.10.1
 - name: cincinnati-operator
@@ -35,7 +29,7 @@ operators:
 - name: mtc-operator
   start_version: 1.6.0
 - name: openshift-gitops-operator
-  start_version: 1.2.1
+  start_version: 1.3.0
 - name: openshift-pipelines-operator-rh
   start_version: 1.5.2
 - name: rhsso-operator
