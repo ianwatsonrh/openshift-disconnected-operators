@@ -12,7 +12,7 @@ operators:
 - name: clusterresourceoverride
   start_version: 4.8.0-202109210857
 - name: codeready-workspaces
-  start_version: 2.11.0
+  start_version: 2.13.1-0.1639048036.p
 - name: compliance-operator
   start_version: 0.1.39
 - name: container-security-operator
