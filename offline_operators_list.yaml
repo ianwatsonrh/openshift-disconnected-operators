@@ -5,3 +5,5 @@ operators:
   start_version: 5.2.1-5
 - name: openshift-gitops-operator
   start_version: 1.2.1
+- name: elasticsearch-operator
+  start_version: 5.2.1-5
