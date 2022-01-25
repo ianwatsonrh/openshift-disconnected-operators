@@ -10,7 +10,7 @@ operators:
 - name: amq7-interconnect-operator
   start_version: 1.10.1
 - name: cincinnati-operator
-  start_version: 4.6.0
+  start_version: 4.9.0
 - name: cluster-kube-descheduler-operator
   start_version: 4.8.0-202108312109
 - name: cluster-logging
@@ -49,8 +49,6 @@ operators:
   start_version: 1.2.0
 - name: servicemeshoperator
   start_version: 2.0.8
-- name: smart-gateway-operator
-  start_version: 2.2.0
 - name: vertical-pod-autoscaler
   start_version: 4.8.0-202109210857
 - name: web-terminal

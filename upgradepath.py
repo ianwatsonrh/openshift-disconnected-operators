@@ -37,7 +37,7 @@ def GetLatestVersion(operator_name, db_path):
 
 def GetVersionMatrix(version, matrix):
   for item in matrix:    
-    if GetVersion(item) == version or (GetVersion(item).replace('-0','') == version.replace('-0','')) or (GetVersion(item).replace('-','.') == version.replace('-','.')):
+    if GetVersion(item) == version or (GetVersion(item).replace('-0','') == version.replace('-0','')) or (GetVersion(item).replace('-0','+0') == version.replace('-0','+0')) or (GetVersion(item).replace('-','.') == version.replace('-','.')):
       return matrix[item][1]
 
 
